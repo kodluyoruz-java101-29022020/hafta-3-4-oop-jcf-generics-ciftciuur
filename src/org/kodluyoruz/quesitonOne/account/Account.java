@@ -35,7 +35,7 @@ public abstract class Account {
         }
     }
 
-    public void loginUser(String email, String password) {
+    public void loginUser(String email, String password) throws InvalidAuthenticationException {
         if (PasswordController.returnLoginDetail(email, password) == AuthenticationDetail.SUCCESS_LOGIN) {
             if (user != null) {
                 if (user.getEmail() != null && user.getPassword() != null) {
@@ -46,7 +46,7 @@ public abstract class Account {
             }
 
         } else {
-            new InvalidAuthenticationException("Oturum açma başarısız", new Exception());
+            new InvalidAuthenticationException("Sing-in failed", new Exception());
             authenticationStatus = AuthenticationStatus.FAIL;
         }
         authenticationStatus = AuthenticationStatus.FAIL;
