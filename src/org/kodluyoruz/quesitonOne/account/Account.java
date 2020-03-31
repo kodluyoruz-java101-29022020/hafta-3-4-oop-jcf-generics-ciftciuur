@@ -11,13 +11,13 @@ import org.kodluyoruz.quesitonOne.manager.AddressManager;
 import org.kodluyoruz.quesitonOne.user.User;
 
 import java.util.List;
+import java.util.Objects;
 
-public abstract class Account {
+public abstract class Account implements Comparable<Account> {
 
     private User user;
-    private boolean autStatus;
     private List<Insurance> insuranceList;
-    private AuthenticationStatus authenticationStatus;
+    private AuthenticationStatus authenticationStatus = AuthenticationStatus.FAIL;
 
 
     public final void showUserInfo(User user) {
@@ -53,6 +53,21 @@ public abstract class Account {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account)) return false;
+        Account account = (Account) o;
+        return getUser().equals(account.getUser()) &&
+                getInsuranceList().equals(account.getInsuranceList()) &&
+                getAuthenticationStatus() == account.getAuthenticationStatus();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUser(), getInsuranceList(), getAuthenticationStatus());
+    }
+
     private void addUserAddress(IAddress address) {
         if (authenticationStatus == AuthenticationStatus.SUCCESS) {
             AddressManager.addUserAddress(user, new HomeAddress("Istanbul", "Arnavutköy", "Merkez mah", "D:5 B BLOK", "34275"));
@@ -76,13 +91,6 @@ public abstract class Account {
         this.user = user;
     }
 
-    public boolean isAutStatus() {
-        return autStatus;
-    }
-
-    public void setAutStatus(boolean autStatus) {
-        this.autStatus = autStatus;
-    }
 
     public List<Insurance> getInsuranceList() {
         return insuranceList;

@@ -7,4 +7,9 @@ public class Individual extends Account {
     public void createInsurancePolicy() {
 
     }
+
+    @Override
+    public int compareTo(Account o) {
+        return 0;
+    }
 }
