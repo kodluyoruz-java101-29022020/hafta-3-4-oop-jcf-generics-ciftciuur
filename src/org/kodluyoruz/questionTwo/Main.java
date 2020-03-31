@@ -9,15 +9,14 @@ public class Main {
 
 
         DoublyLinkedList<String> testLinked = new DoublyLinkedList<>();
-        testLinked.addElement(0, "Ahmet");
-        testLinked.addElement(1, "Mehmet");
-        testLinked.addElement(2, "Hüseyin");
+        testLinked.addElement("Ahmet");
+        testLinked.addElement("Mehmet");
+        testLinked.addElement("Hüseyin");
         testLinked.writeListElements();
         System.out.println("Eleman sayısı :" + testLinked.size());
         testLinked.writeListElements();
-        testLinked.removeElement("Ahmet");
-        System.out.println("Eleman sayısı :" + testLinked.size());
-        testLinked.removeElementIndex(2);
+        testLinked.removeElement("Mehmet");
+        testLinked.addElement("Ayşe");
         System.out.println("Eleman sayısı :" + testLinked.size());
         testLinked.writeListElements();
 

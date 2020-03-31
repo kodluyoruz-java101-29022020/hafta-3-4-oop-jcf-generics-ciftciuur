@@ -35,21 +35,21 @@ public class DoublyLinkedList<E> {
     /*
     Listeye yeni eleman eklemesi yapar
      */
-    public void addElement(int index, E element) {
+    public void addElement(E element) {
         if (head == null)
-            head = tail = new QNode<>(index, element);
+            head = tail = new QNode<>(element);
         if (head.element == element) {
-            QNode tempNode = new QNode(index, element);
+            QNode tempNode = new QNode(element);
             tempNode.next = head;
             head.prev = tempNode;
             head = tempNode;
         } else if (tail.element == element) {
-            QNode newnode = new QNode(index, element);
+            QNode newnode = new QNode(element);
             tail.next = newnode;
             newnode.prev = tail;
             tail = newnode;
         } else {
-            QNode newnode = new QNode(index, element);
+            QNode newnode = new QNode(element);
             QNode temp = head;
             while (temp.next != null && temp.element != element) {
                 temp = temp.next;
@@ -86,26 +86,6 @@ public class DoublyLinkedList<E> {
         }
         //verilen eleman(string,int vs) tail'de ise eger silip bir sonrakıne geçer
         else if (tail.element == element) {
-            tail = tail.prev;
-            if (tail != null)
-                tail.next = null;
-        }
-    }
-
-    /*
-       Listeden eleman silme işlemini yapar
-    */
-    public void removeElementIndex(int index) {
-        //verilen eleman(string,int vs) head'da ise eger silip bir sonrakıne geçer
-        if (head == null)
-            head = tail = new QNode<>(index);
-        if (head.index == index) {
-            head = head.next;
-            if (head != null)
-                head.prev = null;
-        }
-        //verilen eleman(string,int vs) tail'de ise eger silip bir sonrakıne geçer
-        else if (tail.index == index) {
             tail = tail.prev;
             if (tail != null)
                 tail.next = null;

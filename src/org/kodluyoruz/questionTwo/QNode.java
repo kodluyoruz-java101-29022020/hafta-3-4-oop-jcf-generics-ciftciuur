@@ -13,11 +13,6 @@ public class QNode<E> {
         this.prev = null;
     }
 
-    public QNode(int index) {
-        this.next = null;
-        this.prev = null;
-        this.index = index;
-    }
 
     public QNode(int index, E element) {
         this.element = element;
