@@ -1,6 +1,6 @@
 package org.kodluyoruz.quesitonOne.account;
 
-import org.kodluyoruz.quesitonOne.Interface.IAddress;
+import org.kodluyoruz.quesitonOne.impl.IAddress;
 import org.kodluyoruz.quesitonOne.address.BusinessAddress;
 import org.kodluyoruz.quesitonOne.address.HomeAddress;
 import org.kodluyoruz.quesitonOne.controls.PasswordController;
@@ -19,6 +19,14 @@ public abstract class Account implements Comparable<Account> {
     private List<Insurance> insuranceList;
     private AuthenticationStatus authenticationStatus = AuthenticationStatus.FAIL;
 
+    public Account(User user, List<Insurance> insuranceList, AuthenticationStatus authenticationStatus) {
+        this.user = user;
+        this.insuranceList = insuranceList;
+        this.authenticationStatus = authenticationStatus;
+    }
+
+    public Account() {
+    }
 
     public final void showUserInfo(User user) {
         if (user != null) {

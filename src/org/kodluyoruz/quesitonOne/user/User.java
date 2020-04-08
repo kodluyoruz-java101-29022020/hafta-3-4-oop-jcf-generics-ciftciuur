@@ -1,10 +1,10 @@
 package org.kodluyoruz.quesitonOne.user;
 
-import org.kodluyoruz.quesitonOne.Interface.IAddress;
-import org.kodluyoruz.quesitonOne.address.HomeAddress;
+import org.kodluyoruz.quesitonOne.impl.IAddress;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private String name;
@@ -13,12 +13,11 @@ public class User {
     private String password;
     private String job;
     private Integer age;
-    private ArrayList<IAddress> userAddress;
+    private List<IAddress> userAddress;
     private Date lastLoginToSystemDate;
 
     public User() {
     }
-
 
 
     @Override
@@ -35,14 +34,14 @@ public class User {
                 '}';
     }
 
-    public User(String name, String surName, String email, String password, String job, Integer age, IAddress userAddress, Date lastLoginToSystemDate) {
+    public User(String name, String surName, String email, String password, String job, Integer age, List<IAddress> userAddress, Date lastLoginToSystemDate) {
         this.name = name;
         this.surName = surName;
         this.email = email;
         this.password = password;
         this.job = job;
         this.age = age;
-        this.userAddress.add(userAddress);
+        this.userAddress = userAddress;
         this.lastLoginToSystemDate = lastLoginToSystemDate;
     }
 
@@ -94,11 +93,11 @@ public class User {
         this.age = age;
     }
 
-    public ArrayList<IAddress> getUserAddress() {
+    public List<IAddress> getUserAddress() {
         return userAddress;
     }
 
-    public void setUserAddress(ArrayList<IAddress> userAddress) {
+    public void setUserAddress(List<IAddress> userAddress) {
         this.userAddress = userAddress;
     }
 

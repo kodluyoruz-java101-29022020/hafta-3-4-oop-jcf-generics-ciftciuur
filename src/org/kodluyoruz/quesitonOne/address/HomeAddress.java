@@ -1,6 +1,6 @@
 package org.kodluyoruz.quesitonOne.address;
 
-import org.kodluyoruz.quesitonOne.Interface.IAddress;
+import org.kodluyoruz.quesitonOne.impl.IAddress;
 import org.kodluyoruz.quesitonOne.user.User;
 
 import java.util.List;
@@ -25,17 +25,6 @@ public class HomeAddress implements IAddress {
         this.postCode = postCode;
     }
 
-    public HomeAddress() {
-    }
 
 
-    @Override
-    public List<IAddress> createUserAddress(User user) {
-        return null;
-    }
-
-    @Override
-    public List<IAddress> removeUserAddress(User user) {
-        return null;
-    }
 }

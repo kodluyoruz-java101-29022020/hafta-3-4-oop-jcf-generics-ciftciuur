@@ -1,6 +1,6 @@
 package org.kodluyoruz.quesitonOne.address;
 
-import org.kodluyoruz.quesitonOne.Interface.IAddress;
+import org.kodluyoruz.quesitonOne.impl.IAddress;
 import org.kodluyoruz.quesitonOne.user.User;
 
 import java.util.List;
@@ -28,14 +28,4 @@ public class BusinessAddress implements IAddress {
     public BusinessAddress() {
     }
 
-
-    @Override
-    public List<IAddress> createUserAddress(User user) {
-        return null;
-    }
-
-    @Override
-    public List<IAddress> removeUserAddress(User user) {
-        return null;
-    }
 }

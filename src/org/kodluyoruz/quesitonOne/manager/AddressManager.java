@@ -1,6 +1,6 @@
 package org.kodluyoruz.quesitonOne.manager;
 
-import org.kodluyoruz.quesitonOne.Interface.IAddress;
+import org.kodluyoruz.quesitonOne.impl.IAddress;
 import org.kodluyoruz.quesitonOne.user.User;
 
 import java.util.ArrayList;
