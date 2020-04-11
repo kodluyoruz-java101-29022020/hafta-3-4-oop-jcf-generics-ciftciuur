@@ -7,7 +7,7 @@ public class DoublyLinkedList<E> {
     private QNode<E> tail;
     private int size;
 
-    // TODO index mantıgı kurgulanabilir bunu sormakta fayda var 
+    // TODO index mantıgı kurgulanabilir bunu sormakta fayda var
     public DoublyLinkedList() {
         //başlangıcta liste eleman sayısı 0
         this.size = 0;

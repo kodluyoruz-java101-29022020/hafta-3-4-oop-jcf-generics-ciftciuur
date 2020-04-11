@@ -1,6 +1,6 @@
 package org.kodluyoruz.quesitonOne.account;
 
-import org.kodluyoruz.quesitonOne.impl.IAddress;
+import org.kodluyoruz.quesitonOne.address.Address;
 import org.kodluyoruz.quesitonOne.address.BusinessAddress;
 import org.kodluyoruz.quesitonOne.address.HomeAddress;
 import org.kodluyoruz.quesitonOne.controls.PasswordController;
@@ -28,16 +28,16 @@ public abstract class Account implements Comparable<Account> {
     public Account() {
     }
 
-    public final void showUserInfo(User user) {
-        if (user != null) {
+    public final void showUserInfo() {
+        if (this.user != null) {
             StringBuilder builder = new StringBuilder();
             builder.append("İsim :");
-            builder.append(user.getName());
+            builder.append(this.user.getName());
             builder.append("Soyisim : ");
-            builder.append(user.getSurName());
+            builder.append(this.user.getSurName());
             builder.append("Sisteme son giriş tarihi :");
-            builder.append(user.getLastLoginToSystemDate());
-            System.out.println(builder);
+            builder.append(this.user.getLastLoginToSystemDate());
+            System.out.println(builder.toString());
         } else {
             System.out.println("user null");
         }
@@ -52,13 +52,11 @@ public abstract class Account implements Comparable<Account> {
                     }
                 }
             }
-
         } else {
             new InvalidAuthenticationException("Sing-in failed", new Exception());
             authenticationStatus = AuthenticationStatus.FAIL;
         }
         authenticationStatus = AuthenticationStatus.FAIL;
-
     }
 
     @Override
@@ -76,17 +74,7 @@ public abstract class Account implements Comparable<Account> {
         return Objects.hash(getUser(), getInsuranceList(), getAuthenticationStatus());
     }
 
-    private void addUserAddress(IAddress address) {
-        if (authenticationStatus == AuthenticationStatus.SUCCESS) {
-            AddressManager.addUserAddress(user, new HomeAddress("Istanbul", "Arnavutköy", "Merkez mah", "D:5 B BLOK", "34275"));
-            AddressManager.addUserAddress(user, new BusinessAddress("Istanbul", "Maltepe", "Cevizli mah", "D:27", "34600"));
-        }
-    }
 
-    private void removeUserAddress(IAddress address) {
-        if (authenticationStatus == AuthenticationStatus.SUCCESS)
-            AddressManager.deleteUserAddress(user, address);
-    }
 
     public abstract void createInsurancePolicy();
 

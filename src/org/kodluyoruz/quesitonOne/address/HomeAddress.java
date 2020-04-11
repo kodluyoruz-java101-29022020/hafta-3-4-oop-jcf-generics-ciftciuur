@@ -1,11 +1,6 @@
 package org.kodluyoruz.quesitonOne.address;
 
-import org.kodluyoruz.quesitonOne.impl.IAddress;
-import org.kodluyoruz.quesitonOne.user.User;
-
-import java.util.List;
-
-public class HomeAddress implements IAddress {
+public class HomeAddress implements Address {
     //şehir
     private String city;
     //ilçe
@@ -25,6 +20,22 @@ public class HomeAddress implements IAddress {
         this.postCode = postCode;
     }
 
+    public HomeAddress() {
+    }
 
+    @Override
+    public String toString() {
+        return "HomeAddress{" +
+                "city='" + city + '\'' +
+                ", district='" + district + '\'' +
+                ", neighborhood='" + neighborhood + '\'' +
+                ", addressDetail='" + addressDetail + '\'' +
+                ", postCode='" + postCode + '\'' +
+                '}';
+    }
 
+    @Override
+    public void showAddressDetail() {
+        toString();
+    }
 }

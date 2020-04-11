@@ -1,11 +1,6 @@
 package org.kodluyoruz.quesitonOne.address;
 
-import org.kodluyoruz.quesitonOne.impl.IAddress;
-import org.kodluyoruz.quesitonOne.user.User;
-
-import java.util.List;
-
-public class BusinessAddress implements IAddress {
+public class BusinessAddress implements Address {
     //şehir
     private String city;
     //ilçe
@@ -28,4 +23,19 @@ public class BusinessAddress implements IAddress {
     public BusinessAddress() {
     }
 
+    @Override
+    public String toString() {
+        return "BusinessAddress{" +
+                "city='" + city + '\'' +
+                ", district='" + district + '\'' +
+                ", neighborhood='" + neighborhood + '\'' +
+                ", addressDetail='" + addressDetail + '\'' +
+                ", postCode='" + postCode + '\'' +
+                '}';
+    }
+
+    @Override
+    public void showAddressDetail() {
+        toString();
+    }
 }

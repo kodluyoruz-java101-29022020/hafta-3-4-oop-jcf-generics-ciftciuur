@@ -1,8 +1,7 @@
 package org.kodluyoruz.quesitonOne.user;
 
-import org.kodluyoruz.quesitonOne.impl.IAddress;
+import org.kodluyoruz.quesitonOne.address.Address;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,28 +12,13 @@ public class User {
     private String password;
     private String job;
     private Integer age;
-    private List<IAddress> userAddress;
+    private List<Address> userAddress;
     private Date lastLoginToSystemDate;
 
     public User() {
     }
 
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surName='" + surName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", job='" + job + '\'' +
-                ", age=" + age +
-                ", userAddress=" + userAddress +
-                ", lastLoginToSystemDate=" + lastLoginToSystemDate +
-                '}';
-    }
-
-    public User(String name, String surName, String email, String password, String job, Integer age, List<IAddress> userAddress, Date lastLoginToSystemDate) {
+    public User(String name, String surName, String email, String password, String job, Integer age, List<Address> userAddress, Date lastLoginToSystemDate) {
         this.name = name;
         this.surName = surName;
         this.email = email;
@@ -93,11 +77,11 @@ public class User {
         this.age = age;
     }
 
-    public List<IAddress> getUserAddress() {
+    public List<Address> getUserAddress() {
         return userAddress;
     }
 
-    public void setUserAddress(List<IAddress> userAddress) {
+    public void setUserAddress(List<Address> userAddress) {
         this.userAddress = userAddress;
     }
 
@@ -108,4 +92,20 @@ public class User {
     public void setLastLoginToSystemDate(Date lastLoginToSystemDate) {
         this.lastLoginToSystemDate = lastLoginToSystemDate;
     }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", job='" + job + '\'' +
+                ", age=" + age +
+                ", userAddress=" + userAddress +
+                ", lastLoginToSystemDate=" + lastLoginToSystemDate +
+                '}';
+    }
+
 }

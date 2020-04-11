@@ -1,16 +1,17 @@
 package org.kodluyoruz.quesitonOne.manager;
 
-import org.kodluyoruz.quesitonOne.impl.IAddress;
+import org.kodluyoruz.quesitonOne.address.Address;
 import org.kodluyoruz.quesitonOne.user.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AddressManager {
 
-    public static void addUserAddress(User user, IAddress address) {
+    public static void addUserAddress(User user, Address address) {
         if (user != null) {
             if (user.getUserAddress().size() == 0) {
-                ArrayList<IAddress> addressArrayList = new ArrayList<>();
+                List<Address> addressArrayList = new ArrayList<>();
                 addressArrayList.add(address);
                 user.setUserAddress(addressArrayList);
             } else {
@@ -19,7 +20,7 @@ public class AddressManager {
         }
     }
 
-    public static void deleteUserAddress(User user, IAddress addressType) {
+    public static void deleteUserAddress(User user, Address addressType) {
         if (user != null) {
             if (user.getUserAddress().size() > 0) {
                 user.getUserAddress().remove(addressType);
