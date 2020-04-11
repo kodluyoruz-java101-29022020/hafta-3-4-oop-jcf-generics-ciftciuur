@@ -7,6 +7,7 @@ public class DoublyLinkedList<E> {
     private QNode<E> tail;
     private int size;
 
+    // TODO index mantıgı kurgulanabilir bunu sormakta fayda var 
     public DoublyLinkedList() {
         //başlangıcta liste eleman sayısı 0
         this.size = 0;
@@ -65,11 +66,15 @@ public class DoublyLinkedList<E> {
      */
     public void writeListElements() {
         QNode temp = head;
+        StringBuilder builder = new StringBuilder();
         while (temp != null) {
-            System.out.print(temp.element + " ");
+            builder.append("Element -> ");
+            builder.append(temp.element);
+            builder.append(" | ");
+            System.out.print(builder.toString());
             temp = temp.next;
         }
-        System.out.println();
+        System.out.println();//tum kayıtları tek sırada listeledi bu kodda alt satıra ınmesi için
     }
 
     /*

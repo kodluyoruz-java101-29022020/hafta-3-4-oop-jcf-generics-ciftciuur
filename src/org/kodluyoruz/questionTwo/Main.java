@@ -7,7 +7,6 @@ public class Main {
         LinkedList<String> tt = new LinkedList<>();
         tt.add("t");
 
-
         DoublyLinkedList<String> testLinked = new DoublyLinkedList<>();
         testLinked.addElement("Selim");
         testLinked.addElement("Mehmet");
@@ -16,6 +15,15 @@ public class Main {
         testLinked.removeElement("Mehmet");
         testLinked.writeListElements();
         System.out.println(testLinked.size());
+        testLinked.addElement("Hakan");
+        testLinked.addElement("Ayşe");
+        testLinked.addElement("Fatma");
+        testLinked.writeListElements();
+        System.out.println(testLinked.size());
+        testLinked.removeElement("Ayşe");
+        testLinked.writeListElements();
+        System.out.println(testLinked.size());
+
 
     }
 }
