@@ -38,25 +38,25 @@ public class DoublyLinkedList<E> {
     public void addElement(E element) {
         if (head == null)
             head = tail = new QNode<>(element);
-        if (head.element == element) {
+        else if (head.element == element) {
             QNode tempNode = new QNode(element);
             tempNode.next = head;
             head.prev = tempNode;
             head = tempNode;
         } else if (tail.element == element) {
-            QNode newnode = new QNode(element);
-            tail.next = newnode;
-            newnode.prev = tail;
-            tail = newnode;
+            QNode newNode = new QNode(element);
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
         } else {
-            QNode newnode = new QNode(element);
+            QNode newNode = new QNode(element);
             QNode temp = head;
             while (temp.next != null && temp.element != element) {
                 temp = temp.next;
             }
-            newnode.next = temp.next;
-            newnode.prev = temp;
-            temp.next = newnode;
+            newNode.next = temp.next;
+            newNode.prev = temp;
+            temp.next = newNode;
         }
     }
 
@@ -89,6 +89,15 @@ public class DoublyLinkedList<E> {
             tail = tail.prev;
             if (tail != null)
                 tail.next = null;
+        } else {
+            QNode tempNode = head;
+            while (tempNode.next != null && tempNode.next.element != element) {
+                tempNode = tempNode.next;
+            }
+            if (tempNode != null) {
+                tempNode.next = tempNode.next.next;
+                tempNode.prev = tempNode;
+            }
         }
     }
 
