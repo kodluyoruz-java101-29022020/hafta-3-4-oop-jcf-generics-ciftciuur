@@ -20,10 +20,10 @@ public class AddressManager {
         }
     }
 
-    public static void deleteUserAddress(User user, Address addressType) {
+    public static void deleteUserAddress(User user, Address address) {
         if (user != null) {
             if (user.getUserAddress().size() > 0) {
-                user.getUserAddress().remove(addressType);
+                user.getUserAddress().remove(address);
             }
         }
     }

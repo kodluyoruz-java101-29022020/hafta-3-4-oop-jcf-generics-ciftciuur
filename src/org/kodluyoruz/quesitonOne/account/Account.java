@@ -15,9 +15,9 @@ import java.util.Objects;
 
 public abstract class Account implements Comparable<Account> {
 
-    private User user;
-    private List<Insurance> insuranceList;
-    private AuthenticationStatus authenticationStatus = AuthenticationStatus.FAIL;
+    protected User user;
+    protected List<Insurance> insuranceList;
+    protected AuthenticationStatus authenticationStatus = AuthenticationStatus.FAIL;
 
     public Account(User user, List<Insurance> insuranceList, AuthenticationStatus authenticationStatus) {
         this.user = user;
@@ -73,7 +73,6 @@ public abstract class Account implements Comparable<Account> {
     public int hashCode() {
         return Objects.hash(getUser(), getInsuranceList(), getAuthenticationStatus());
     }
-
 
 
     public abstract void createInsurancePolicy();
