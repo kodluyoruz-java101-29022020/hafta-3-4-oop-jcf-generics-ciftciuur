@@ -42,7 +42,7 @@ public class Main {
 
     }
 
-    private List<Insurance> createInsurances(String type) {
+    private static List<Insurance> createInsurances(String type) {
         List<Insurance> insuranceList = new ArrayList<>();
         if (type.equals("kurumsal")) {
             insuranceList.add(new CarInsurance("araç sigortası", 20000, new Date(), new Date()));
@@ -54,7 +54,7 @@ public class Main {
         return insuranceList;
     }
 
-    private List<Address> createAddress(String type) {
+    private static List<Address> createAddress(String type) {
         List<Address> addresses = new ArrayList<>();
         if (type.equals("kurumsal")) {
             addresses.add(new HomeAddress("istanbul", "maltepe", "esenkent mah", "ev adresi", "34200"));
@@ -64,9 +64,10 @@ public class Main {
             addresses.add(new HomeAddress("istanbul", "maltepe", "esenkent mah", "ev adresi", "34200"));
 
         }
+        return addresses;
     }
 
-    private User createUser(String type) {
+    private static User createUser(String type) {
         User currentUser = new User();
         if (type.equals("kurumsal")) {
             currentUser.setUserAddress(createAddress(type));
@@ -86,7 +87,7 @@ public class Main {
         return currentUser;
     }
 
-    public TreeSet<Account> fillAccount() {
+    public static TreeSet<Account> fillAccount() {
         TreeSet<Account> accounts = new TreeSet<>();
 
 
@@ -103,11 +104,14 @@ public class Main {
         /*
             TODO baslangıc ıcın 2 adet kullanıcı olusturuldu login olma durumu bu ıkı kullanıcı uzerınden devam edicek
          */
+        accounts.add(enterpriseAccount);
+        accounts.add(individualAccount);
+        return accounts;
     }
 
 
     private static void login() {
-        AccountManager accountManager = new AccountManager();
+        AccountManager accountManager = new AccountManager(fillAccount());
 
         System.out.print("e-posta :");
         String email = scanner.nextLine();
