@@ -8,7 +8,7 @@ import java.util.List;
 
 public class AddressManager {
 
-    public static void addUserAddress(User user, Address address) {
+    public static User addUserAddress(User user, Address address) {
         if (user != null) {
             if (user.getUserAddress().size() == 0) {
                 List<Address> addressArrayList = new ArrayList<>();
@@ -18,13 +18,15 @@ public class AddressManager {
                 user.getUserAddress().add(address);
             }
         }
+        return user;
     }
 
-    public static void deleteUserAddress(User user, Address address) {
+    public static User deleteUserAddress(User user, Address address) {
         if (user != null) {
             if (user.getUserAddress().size() > 0) {
                 user.getUserAddress().remove(address);
             }
         }
+        return user;
     }
 }

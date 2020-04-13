@@ -10,8 +10,11 @@ import java.util.TreeSet;
 
 public class AccountManager {
 
-    private TreeSet<Account> accountTreeSet = new TreeSet<>();
+    private TreeSet<Account> accountTreeSet;
 
+    public AccountManager(TreeSet<Account> accountTreeSet) {
+        this.accountTreeSet = accountTreeSet;
+    }
 
     public Account loginControl(String email, String password) {
         for (Account account : accountTreeSet) {
