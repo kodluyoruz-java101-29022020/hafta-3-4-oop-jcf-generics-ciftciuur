@@ -113,10 +113,13 @@ public class Main {
     private static void login() {
         AccountManager accountManager = new AccountManager(fillAccount());
 
-        System.out.print("e-posta :");
-        String email = scanner.nextLine();
-        System.out.print("şifre :");
+        System.out.println("e-posta :");
+        String email = scanner.next();
+        scanner.nextLine();
+        System.out.println("şifre :");
         String password = scanner.nextLine();
+
+        accountManager.loginControl(email, password);
 
 
     }

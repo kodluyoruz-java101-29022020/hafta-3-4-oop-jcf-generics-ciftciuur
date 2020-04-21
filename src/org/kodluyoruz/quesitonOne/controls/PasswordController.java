@@ -7,7 +7,7 @@ public class PasswordController {
     public static AuthenticationDetail returnLoginDetail(String email, String password) {
         if (email == null) {
             return AuthenticationDetail.NULL_MAIL;
-        } else if (!email.contentEquals("@")) {
+        } else if (email.contentEquals("@")) {
             return AuthenticationDetail.INVALID_EMAIL;
         } else if (password == null) {
             return AuthenticationDetail.NULL_PASSWORD;

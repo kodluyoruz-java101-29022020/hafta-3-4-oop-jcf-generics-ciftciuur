@@ -50,6 +50,8 @@ public abstract class Account implements Comparable<Account> {
                     if (email.equals(user.getEmail()) && password.equals(user.getName())) {
                         authenticationStatus = AuthenticationStatus.SUCCESS;
                     }
+                } else {
+                    System.out.println("Kullanıcı epostası yada şifresi yanlış");
                 }
             }
         } else {
