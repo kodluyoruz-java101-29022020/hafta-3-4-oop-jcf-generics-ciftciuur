@@ -70,6 +70,8 @@ public class Main {
     private static User createUser(String type) {
         User currentUser = new User();
         if (type.equals("kurumsal")) {
+            currentUser.setName("kurumsal kullanıcı");
+            currentUser.setSurName("kurumsal kullanıcı soyad");
             currentUser.setUserAddress(createAddress(type));
             currentUser.setAge(41);
             currentUser.setEmail("kurumsal@gmail.com");
@@ -77,6 +79,8 @@ public class Main {
             currentUser.setPassword("kurumsal");
 
         } else if (type.equals("bireysel")) {
+            currentUser.setName("bireysel kullanıcı");
+            currentUser.setSurName("bireysel kullanıcı soyad");
             currentUser.setUserAddress(createAddress(type));
             currentUser.setUserAddress(createAddress(type));
             currentUser.setAge(25);
@@ -98,8 +102,8 @@ public class Main {
 
         Account individualAccount = new Individual();
         individualAccount.setAuthenticationStatus(AuthenticationStatus.FAIL);
-        individualAccount.setInsuranceList(createInsurances("kurumsal"));
-        individualAccount.setUser(createUser("kurumsal"));
+        individualAccount.setInsuranceList(createInsurances("bireysel"));
+        individualAccount.setUser(createUser("bireysel"));
 
         /*
             TODO baslangıc ıcın 2 adet kullanıcı olusturuldu login olma durumu bu ıkı kullanıcı uzerınden devam edicek
