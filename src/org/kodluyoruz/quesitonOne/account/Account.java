@@ -7,9 +7,11 @@ import org.kodluyoruz.quesitonOne.controls.PasswordController;
 import org.kodluyoruz.quesitonOne.enums.AuthenticationDetail;
 import org.kodluyoruz.quesitonOne.enums.AuthenticationStatus;
 import org.kodluyoruz.quesitonOne.exceptions.InvalidAuthenticationException;
+import org.kodluyoruz.quesitonOne.manager.AccountManager;
 import org.kodluyoruz.quesitonOne.manager.AddressManager;
 import org.kodluyoruz.quesitonOne.user.User;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,9 +49,11 @@ public abstract class Account implements Comparable<Account> {
         if (PasswordController.returnLoginDetail(email, password) == AuthenticationDetail.SUCCESS_LOGIN) {
             if (user != null) {
                 if (user.getEmail() != null && user.getPassword() != null) {
-                    if (email.equals(user.getEmail()) && password.equals(user.getName())) {
+                    if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
                         authenticationStatus = AuthenticationStatus.SUCCESS;
+                        user.setLastLoginToSystemDate(new Date());
                         System.out.println("Oturum açma başarılı");
+                        AccountManager.accountStatus = 1;
                     } else {
                         System.out.println("Kullanıcı epostası ya da şifre alanı yanlış.");
                     }

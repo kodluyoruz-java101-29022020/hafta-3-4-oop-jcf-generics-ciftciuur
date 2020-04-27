@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.TreeSet;
 
 public class AccountManager {
-
+    public static int accountStatus = 0;
     private TreeSet<Account> accountTreeSet;
 
     public AccountManager(TreeSet<Account> accountTreeSet) {

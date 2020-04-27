@@ -18,7 +18,10 @@ public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
 
+
     public static void main(String[] args) {
+        System.out.println("Sigorta Uygulamasına hoş geldiniz");
+        System.out.println("İşlem menüsü");
         menu();
 
     }
@@ -26,20 +29,24 @@ public class Main {
     private static void menu() {
         byte menuRequest;
 
-        System.out.println("Sigorta Uygulamasına hoş geldiniz");
-        System.out.println("1 - Oturum Aç");
-        System.out.print("İşleminiz :");
-        menuRequest = scanner.nextByte();
-        switch (menuRequest) {
-            case 1:
-                login();
-                break;
-            default:
-                System.out.println("Geçersiz istek , menüde bulunan kısayol tuslarından bırını tercih ediniz");
-                menu();
 
+        if (AccountManager.accountStatus == 0) {
+            System.out.println(" !! Sistemi kullanabilmek için lütfen oturum açın !! ");
+            login();
+        } else if (AccountManager.accountStatus == 1) {
+            System.out.println("2 - Oturum açmış kullanıcı detayını görüntüle");
+            System.out.print("İşleminiz :");
+            menuRequest = scanner.nextByte();
+            switch (menuRequest) {
+                case 1:
+                    login();
+                    break;
+                default:
+                    System.out.println("Geçersiz istek , menüde bulunan kısayol tuslarından bırını tercih ediniz");
+                    menu();
+
+            }
         }
-
     }
 
     private static List<Insurance> createInsurances(String type) {
@@ -125,6 +132,7 @@ public class Main {
 
         accountManager.loginControl(email, password);
 
+        menu();
 
     }
 }
